@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/page/model/academic_model.dart';
+import '../../model/academic_model.dart';
 
 class CardAcademicComponent extends StatelessWidget {
   const CardAcademicComponent({
@@ -30,7 +30,7 @@ class CardAcademicComponent extends StatelessWidget {
                     FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
-                        academicModel.name,
+                        academicModel.graduate,
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
