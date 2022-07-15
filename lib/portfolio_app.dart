@@ -8,10 +8,10 @@ class PortfolioApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-      home:   LandingPage(),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const LandingPage(),
     );
   }
 }

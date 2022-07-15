@@ -7,7 +7,6 @@ class Responsive extends StatelessWidget {
   final Widget desktop;
   final Widget mobile;
 
-
   static bool isMobile(BuildContext context) {
     return MediaQuery.of(context).size.width < 800;
   }
@@ -24,7 +23,6 @@ class Responsive extends StatelessWidget {
         if (constraints.maxWidth > 800) {
           return desktop;
         }
-
         return mobile;
       },
     );

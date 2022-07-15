@@ -6,6 +6,7 @@ import 'package:portfolio_app/page/components/presentation_mobile_component.dart
 import 'package:portfolio_app/util/responsive.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
+import 'components/abilities_component.dart';
 import 'components/about_component.dart';
 import 'components/academic_component.dart';
 import 'components/experience_component.dart';
@@ -35,6 +36,7 @@ class LandingPageDesktop extends StatelessWidget {
       const AboutComponent(),
       const AcademicComponent(),
       const ExperienceComponent(),
+      AbilitiesComponent()
     ];
 
     return Scaffold(
@@ -74,6 +76,7 @@ class LandingPageMobile extends StatelessWidget {
       const AboutComponent(),
       const AcademicComponent(),
       const ExperienceComponent(),
+      AbilitiesComponent()
     ];
     return Scaffold(
       key: _key,
