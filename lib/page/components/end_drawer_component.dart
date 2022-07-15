@@ -31,12 +31,20 @@ class EndDrawerComponent extends StatelessWidget {
       child: Wrap(
         runSpacing: 5,
         children: [
-          MenuEndDrawer(label: 'Sobre', onClick: () => onClick(constants.menuAbout)),
-          MenuEndDrawer(label: 'Formação', onClick:() => onClick(constants.menuAcademic)),
-          MenuEndDrawer(label: 'Experiência', onClick:() => onClick(constants.menuExperience)),
           MenuEndDrawer(
-              label: 'Habilidades e competêcias', onClick:() {}),
-          MenuEndDrawer(label: 'Áreas de interesse', onClick:() {}),
+              label: 'Sobre', onClick: () => onClick(constants.menuAbout)),
+          MenuEndDrawer(
+              label: 'Formação',
+              onClick: () => onClick(constants.menuAcademic)),
+          MenuEndDrawer(
+              label: 'Experiência',
+              onClick: () => onClick(constants.menuExperience)),
+          MenuEndDrawer(
+              label: 'Habilidades e competêcias',
+              onClick: () => onClick(constants.menuAbility)),
+          MenuEndDrawer(
+              label: 'Áreas de interesse',
+              onClick: () => onClick(constants.menuAreaInterest)),
         ],
       ),
     );

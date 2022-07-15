@@ -36,8 +36,8 @@ class HeaderComponent extends StatelessWidget {
           MenuHeader(onClick: () => onClick(menuAcademic), label: "Formação"),
           MenuHeader(
               onClick: () => onClick(menuExperience), label: "Experiências"),
-          MenuHeader(onClick: () {}, label: "Habilidade e competêcias"),
-          MenuHeader(onClick: () {}, label: "Áreas de interesse")
+          MenuHeader(onClick: ()=>onClick(menuAbility), label: "Habilidade e competêcias"),
+          MenuHeader(onClick: ()=>onClick(menuAreaInterest), label: "Áreas de interesse")
         ],
       ),
     );
