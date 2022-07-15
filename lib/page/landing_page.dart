@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/page/components/area_interest_component.dart';
 import 'package:portfolio_app/page/components/end_drawer_component.dart';
 import 'package:portfolio_app/page/components/header_mobile_component.dart';
 import 'package:portfolio_app/page/components/presentation_component.dart';
@@ -36,7 +37,8 @@ class LandingPageDesktop extends StatelessWidget {
       const AboutComponent(),
       const AcademicComponent(),
       const ExperienceComponent(),
-      AbilitiesComponent()
+      const AbilitiesComponent(),
+      const AreasInterestComponent()
     ];
 
     return Scaffold(
@@ -76,7 +78,8 @@ class LandingPageMobile extends StatelessWidget {
       const AboutComponent(),
       const AcademicComponent(),
       const ExperienceComponent(),
-      AbilitiesComponent()
+     const AbilitiesComponent(),
+      const AreasInterestComponent()
     ];
     return Scaffold(
       key: _key,
