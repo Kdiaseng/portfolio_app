@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_app/page/components/card_component.dart';
+import 'package:portfolio_app/util/responsive.dart';
 
 class ItemAbility extends StatelessWidget {
   const ItemAbility({Key? key}) : super(key: key);
@@ -45,18 +46,40 @@ class AbilitiesComponent extends StatelessWidget {
                 ?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           const SizedBox(height: 30),
-          Wrap(
-            runSpacing: 20,
-            children: const [
-              ItemAbility(),
-              ItemAbility(),
-              ItemAbility(),
-              ItemAbility(),
-              ItemAbility(),
-            ],
-          )
+          _getListAbilitiesToPlatform(context)
         ],
       ),
     );
+  }
+
+  Widget _abilitiesToMobile() => SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: const [
+            ItemAbility(),
+            ItemAbility(),
+            ItemAbility(),
+            ItemAbility(),
+            ItemAbility(),
+          ],
+        ),
+      );
+
+  Widget _abilitiesToDesktop() => Wrap(
+        runSpacing: 20,
+        children: const [
+          ItemAbility(),
+          ItemAbility(),
+          ItemAbility(),
+          ItemAbility(),
+          ItemAbility(),
+        ],
+      );
+
+  Widget _getListAbilitiesToPlatform(context) {
+    if (Responsive.isMobile(context)) {
+      return _abilitiesToMobile();
+    }
+    return _abilitiesToDesktop();
   }
 }
