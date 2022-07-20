@@ -1,28 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/bloc/main_bloc.dart';
+import 'package:portfolio_app/model/ability_model.dart';
 import 'package:portfolio_app/page/components/card_component.dart';
 import 'package:portfolio_app/util/responsive.dart';
+import 'package:provider/provider.dart';
 
 class ItemAbility extends StatelessWidget {
-  const ItemAbility({Key? key}) : super(key: key);
+  const ItemAbility({Key? key, required this.ability}) : super(key: key);
+
+  final AbilityModel ability;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 200,
       child: Column(
-        children: const [
-          CircleAvatar(
+        children: [
+          const CircleAvatar(
             radius: 30,
             backgroundColor: Colors.grey,
             backgroundImage: AssetImage('assets/flutter_icon.png'),
           ),
-          SizedBox(height: 8),
-          Text('Flutter', style: TextStyle(fontWeight: FontWeight.bold)),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
+          Text(ability.name,
+              style: const TextStyle(fontWeight: FontWeight.bold)),
+          const SizedBox(height: 8),
           Text(
-            'Flutter é top pq é multiplatarforma ',
+            ability.description,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 14),
+            style: const TextStyle(fontSize: 14),
           )
         ],
       ),
@@ -35,6 +41,7 @@ class AbilitiesComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<MainBloc>(context);
     final theme = Theme.of(context).textTheme;
     return CardComponent(
       child: Column(
@@ -46,40 +53,29 @@ class AbilitiesComponent extends StatelessWidget {
                 ?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           const SizedBox(height: 30),
-          _getListAbilitiesToPlatform(context)
+          _getListAbilitiesToPlatform(context, provider.abilities)
         ],
       ),
     );
   }
 
-  Widget _abilitiesToMobile() => SingleChildScrollView(
+  Widget _abilitiesToMobile(List<AbilityModel> abilities) =>
+      SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
-          children: const [
-            ItemAbility(),
-            ItemAbility(),
-            ItemAbility(),
-            ItemAbility(),
-            ItemAbility(),
-          ],
+          children: abilities.map((e) => ItemAbility(ability: e)).toList(),
         ),
       );
 
-  Widget _abilitiesToDesktop() => Wrap(
+  Widget _abilitiesToDesktop(List<AbilityModel> abilities) => Wrap(
         runSpacing: 20,
-        children: const [
-          ItemAbility(),
-          ItemAbility(),
-          ItemAbility(),
-          ItemAbility(),
-          ItemAbility(),
-        ],
+        children: abilities.map((e) => ItemAbility(ability: e)).toList(),
       );
 
-  Widget _getListAbilitiesToPlatform(context) {
+  Widget _getListAbilitiesToPlatform(context, List<AbilityModel> abilities) {
     if (Responsive.isMobile(context)) {
-      return _abilitiesToMobile();
+      return _abilitiesToMobile(abilities);
     }
-    return _abilitiesToDesktop();
+    return _abilitiesToDesktop(abilities);
   }
 }

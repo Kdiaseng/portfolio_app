@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/bloc/main_bloc.dart';
 import 'package:portfolio_app/page/components/card_component.dart';
+import 'package:provider/provider.dart';
 
 class Area extends StatelessWidget {
   const Area({Key? key, required this.areaLabel}) : super(key: key);
@@ -26,13 +28,7 @@ class AreasInterestComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final areas = [
-      'Líder de Projetos',
-      'Desenvolvedor Mobile Flutter',
-      'Denvolvedor Mobile Android',
-      'Líder Tecnico',
-      'Engenheiro de Softaware'
-    ];
+    final provider = Provider.of<MainBloc>(context);
     final theme = Theme.of(context).textTheme;
     return CardComponent(
       child: Column(
@@ -46,7 +42,8 @@ class AreasInterestComponent extends StatelessWidget {
           Wrap(
             spacing: 20,
             runSpacing: 20,
-            children: areas.map((e) => Area(areaLabel: e)).toList(),
+            children:
+                provider.interestAreas.map((e) => Area(areaLabel: e)).toList(),
           ),
         ],
       ),
