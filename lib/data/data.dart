@@ -83,6 +83,6 @@ final List<String> interestingAreas = [
   'Lider de projetos',
   'Desenvolvimento Mobile Flutter',
   'Desenvolvimento Mobile Android',
-  'Líder Tecnico',
+  'Líder Técnico',
   'Engenheiro de Software'
 ];

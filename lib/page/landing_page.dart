@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/data/data.dart';
 import 'package:portfolio_app/page/components/area_interest_component.dart';
 import 'package:portfolio_app/page/components/end_drawer_component.dart';
 import 'package:portfolio_app/page/components/header_mobile_component.dart';
@@ -33,9 +34,9 @@ class LandingPageDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> components = [
       HeaderComponent(onClick: _scrollTo),
-      const PresentationComponent(),
-      const AboutComponent(),
-      const AcademicComponent(),
+      PresentationComponent(presentation: presentationModel),
+      const AboutComponent(aboutMe: aboutMe),
+      AcademicComponent(academics: graduations),
       const ExperienceComponent(),
       const AbilitiesComponent(),
       const AreasInterestComponent()
@@ -74,11 +75,11 @@ class LandingPageMobile extends StatelessWidget {
       HeaderMobileComponent(
         onClick: () => _key.currentState?.openEndDrawer(),
       ),
-      const PresentationMobileComponent(),
-      const AboutComponent(),
-      const AcademicComponent(),
+      PresentationMobileComponent(presentationModel: presentationModel),
+      const AboutComponent(aboutMe: aboutMe),
+      AcademicComponent(academics: graduations),
       const ExperienceComponent(),
-     const AbilitiesComponent(),
+      const AbilitiesComponent(),
       const AreasInterestComponent()
     ];
     return Scaffold(

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/model/presentation_model.dart';
 import 'package:portfolio_app/page/components/card_component.dart';
 
 class PresentationMobileComponent extends StatelessWidget {
-  const PresentationMobileComponent({Key? key}) : super(key: key);
+  const PresentationMobileComponent({Key? key, required this.presentationModel})
+      : super(key: key);
+
+  final PresentationModel presentationModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,20 +22,17 @@ class PresentationMobileComponent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Kaleb Dias da Silva',
+                presentationModel.name,
                 style: theme.displaySmall?.copyWith(
                     fontWeight: FontWeight.bold, color: Colors.black),
               ),
               const SizedBox(height: 30),
               Text(
-                'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys'
-                    ' standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled '
-                    'it to make a type specimen book',
+                presentationModel.description,
                 textWidthBasis: TextWidthBasis.parent,
                 textAlign: TextAlign.justify,
                 textScaleFactor: 1.5,
-                style:
-                theme.bodyMedium?.copyWith(color: Colors.grey.shade600),
+                style: theme.bodyMedium?.copyWith(color: Colors.grey.shade600),
               ),
             ],
           )

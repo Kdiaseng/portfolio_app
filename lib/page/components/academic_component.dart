@@ -5,7 +5,10 @@ import 'package:portfolio_app/page/components/card_component.dart';
 import '../../model/academic_model.dart';
 
 class AcademicComponent extends StatelessWidget {
-  const AcademicComponent({Key? key}) : super(key: key);
+  const AcademicComponent({Key? key, required this.academics})
+      : super(key: key);
+
+  final List<AcademicModel> academics;
 
   static final graduation = AcademicModel(
       graduate: 'Graduação : Engenharia da computação',
@@ -32,10 +35,9 @@ class AcademicComponent extends StatelessWidget {
           Wrap(
             runSpacing: 10,
             spacing: 20,
-            children: [
-              CardAcademicComponent(academicModel: graduation),
-              CardAcademicComponent(academicModel: posGraduation),
-            ],
+            children: academics
+                .map((item) => CardAcademicComponent(academicModel: item))
+                .toList(),
           )
         ],
       ),
