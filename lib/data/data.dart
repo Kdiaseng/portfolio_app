@@ -79,7 +79,7 @@ final List<AbilityModel> abilities = [
   abilitySprintBoot
 ];
 
-final List<String> interestingAreas = [
+final List<String> interestAreas = [
   'Lider de projetos',
   'Desenvolvimento Mobile Flutter',
   'Desenvolvimento Mobile Android',
