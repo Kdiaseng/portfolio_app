@@ -34,9 +34,9 @@ class LandingPageDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> components = [
       HeaderComponent(onClick: _scrollTo),
-      PresentationComponent(presentation: presentationModel),
-      const AboutComponent(aboutMe: aboutMe),
-      AcademicComponent(academics: graduations),
+      const PresentationComponent(),
+      const AboutComponent(),
+      const AcademicComponent(),
       const ExperienceComponent(),
       const AbilitiesComponent(),
       const AreasInterestComponent()
@@ -76,8 +76,8 @@ class LandingPageMobile extends StatelessWidget {
         onClick: () => _key.currentState?.openEndDrawer(),
       ),
       PresentationMobileComponent(presentationModel: presentationModel),
-      const AboutComponent(aboutMe: aboutMe),
-      AcademicComponent(academics: graduations),
+      const AboutComponent(),
+      const AcademicComponent(),
       const ExperienceComponent(),
       const AbilitiesComponent(),
       const AreasInterestComponent()

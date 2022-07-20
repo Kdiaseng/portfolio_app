@@ -1,27 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/bloc/main_bloc.dart';
 import 'package:portfolio_app/page/components/card_academic_component.dart';
 import 'package:portfolio_app/page/components/card_component.dart';
+import 'package:provider/provider.dart';
 
-import '../../model/academic_model.dart';
 
 class AcademicComponent extends StatelessWidget {
-  const AcademicComponent({Key? key, required this.academics})
-      : super(key: key);
-
-  final List<AcademicModel> academics;
-
-  static final graduation = AcademicModel(
-      graduate: 'Graduação : Engenharia da computação',
-      place: 'UEA - Universidade Estatual do Amazonas',
-      period: '2010 - 2015');
-
-  static final posGraduation = AcademicModel(
-      graduate: 'Pós - Graduação : MBA Gerenciamento de Projetos',
-      place: 'UNIP - Universidade Paulista',
-      period: '2016 - 2017');
+  const AcademicComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<MainBloc>(context);
     final theme = Theme.of(context).textTheme;
     return CardComponent(
       child: Column(
@@ -35,7 +24,7 @@ class AcademicComponent extends StatelessWidget {
           Wrap(
             runSpacing: 10,
             spacing: 20,
-            children: academics
+            children: provider.academics
                 .map((item) => CardAcademicComponent(academicModel: item))
                 .toList(),
           )

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/model/presentation_model.dart';
 import 'package:portfolio_app/page/components/card_component.dart';
+import 'package:provider/provider.dart';
+
+import '../../bloc/main_bloc.dart';
 
 class PresentationComponent extends StatelessWidget {
-  const PresentationComponent({Key? key, required this.presentation})
-      : super(key: key);
-
-  final PresentationModel presentation;
+  const PresentationComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
+    final provider = Provider.of<MainBloc>(context);
 
     return CardComponent(
       child: Row(
@@ -20,13 +20,13 @@ class PresentationComponent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  presentation.name,
+                  provider.presentation.name,
                   style: theme.displaySmall?.copyWith(
                       fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 const SizedBox(height: 30),
                 Text(
-                  presentation.description,
+                  provider.presentation.description,
                   textWidthBasis: TextWidthBasis.parent,
                   textAlign: TextAlign.justify,
                   textScaleFactor: 1.5,
