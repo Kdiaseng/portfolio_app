@@ -35,5 +35,6 @@ class MainBloc {
     _academics = academics;
     _abilities = abilities;
     _interestAreas = interestAreas;
+    _experiences = experiences;
   }
 }
