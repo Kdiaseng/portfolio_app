@@ -13,6 +13,7 @@ class PresentationComponent extends StatelessWidget {
     final provider = Provider.of<MainBloc>(context);
 
     return CardComponent(
+      color: const Color(0xff1F2235),
       child: Row(
         children: [
           Expanded(
@@ -22,7 +23,8 @@ class PresentationComponent extends StatelessWidget {
                 Text(
                   provider.presentation.name,
                   style: theme.displaySmall?.copyWith(
-                      fontWeight: FontWeight.bold, color: Colors.black),
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xffb23e51)),
                 ),
                 const SizedBox(height: 30),
                 Text(

@@ -15,6 +15,7 @@ class Area extends StatelessWidget {
       child: SizedBox(
         width: 300,
         child: ListTile(
+          contentPadding: const EdgeInsets.all(10),
           leading: const Icon(Icons.rocket_launch),
           title: Text(areaLabel),
         ),

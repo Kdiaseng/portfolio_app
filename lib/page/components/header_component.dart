@@ -15,7 +15,7 @@ class MenuHeader extends StatelessWidget {
       onPressed: onClick,
       child: Text(label,
           style: const TextStyle(
-              color: Colors.black54, fontWeight: FontWeight.bold)),
+              color: Colors.white, fontWeight: FontWeight.bold)),
     );
   }
 }
@@ -28,6 +28,7 @@ class HeaderComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CardComponent(
+      color: Colors.black87,
       padding: const EdgeInsets.all(20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -36,8 +37,12 @@ class HeaderComponent extends StatelessWidget {
           MenuHeader(onClick: () => onClick(menuAcademic), label: "Formação"),
           MenuHeader(
               onClick: () => onClick(menuExperience), label: "Experiências"),
-          MenuHeader(onClick: ()=>onClick(menuAbility), label: "Habilidade e competêcias"),
-          MenuHeader(onClick: ()=>onClick(menuAreaInterest), label: "Áreas de interesse")
+          MenuHeader(
+              onClick: () => onClick(menuAbility),
+              label: "Habilidade e competêcias"),
+          MenuHeader(
+              onClick: () => onClick(menuAreaInterest),
+              label: "Áreas de interesse")
         ],
       ),
     );

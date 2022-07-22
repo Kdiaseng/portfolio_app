@@ -14,7 +14,7 @@ class ContentStepper extends StatelessWidget {
     return Material(
       elevation: 2,
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: size.width * .6),
+        constraints: BoxConstraints(maxWidth: size.width * .6, minWidth: 300),
         child: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Column(
